@@ -33,7 +33,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                sh 'docker push --verbose ankitkarwasra/scientific-calculator:latest'
+                sh 'docker push ankitkarwasra/scientific-calculator:latest'
             }
         }
 
