@@ -9,7 +9,7 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git branch: 'main', url: 'https://github.com/kartik-2011/ScientificCalculator-DevOps.git'
+                git branch: 'main', url: 'https://github.com/ankit-karwasra/spe-calculator.git'
         }
         }
 
@@ -27,13 +27,13 @@ pipeline {
 
         stage('Build the Docker Image') {
             steps {
-                sh 'docker build -t kaali2011/scientific-calculator .'
+                sh 'docker build -t ankitkarwasra/scientific-calculator .'
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                sh 'docker push kaali2011/scientific-calculator'
+                sh 'docker push ankitkarwasra/scientific-calculator'
             }
         }
 
@@ -46,12 +46,12 @@ pipeline {
     }
     post {
     success {
-        mail to: 'kartikahluwalia2011@gmail.com',
+        mail to: 'akarwasra.10@gmail.com',
         subject: 'Build Success',
         body: 'The Jenkins build was successful.'
     }
     failure {
-        mail to: 'kartikahluwalia2011@gmail.com',
+        mail to: 'akarwasra.10@gmail.com',
         subject: 'Build Failed',
         body: 'The Jenkins build has failed.'
     }
