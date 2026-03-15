@@ -27,7 +27,7 @@ pipeline {
 
         stage('Build the Docker Image') {
             steps {
-                sh 'docker build -t ankitkarwasra/scientific-calculator .'
+                sh 'docker build -t ankitkarwasra/scientific-calculator'
             }
         }
 
