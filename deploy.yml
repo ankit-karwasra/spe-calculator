@@ -1,0 +1,28 @@
+- hosts: localhost
+  connection: local
+  tasks:
+
+  - name: Pull latest Docker image
+    docker_image:
+      name: kaali2011/scientific-calculator
+      source: pull
+
+  - name: Stop existing calculator container
+    docker_container:
+      name: calculator
+      state: stopped
+    ignore_errors: yes
+ 
+  - name: Remove old calculator container
+    docker_container:
+      name: calculator
+      state: absent
+    ignore_errors: yes
+
+  - name: Start new calculator container
+    docker_container:
+      name: calculator
+      image: kaali2011/scientific-calculator:latest
+      state: started
+      interactive: true
+      tty: true
